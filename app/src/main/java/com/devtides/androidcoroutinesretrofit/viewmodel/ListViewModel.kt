@@ -5,11 +5,10 @@ import androidx.lifecycle.ViewModel
 import com.devtides.androidcoroutinesretrofit.model.CountriesService
 import com.devtides.androidcoroutinesretrofit.model.Country
 import kotlinx.coroutines.*
-import retrofit2.HttpException
 
 class ListViewModel: ViewModel() {
 
-    private val countriesService = CountriesService.getCountriesService()
+    private val countriesService = CountriesService.service
     var job: Job? = null
     private val exceptionHandler = CoroutineExceptionHandler { coroutineContext, throwable ->
         onError("Exception: ${throwable.localizedMessage}")
